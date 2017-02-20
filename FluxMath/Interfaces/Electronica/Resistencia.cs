@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FluxMath.Interfaces.Electronica {
-  public partial class Ohm : Form {
-    public Ohm() {
+  public partial class Resistencia : Form {
+    public Resistencia() {
       InitializeComponent();
     }
   }
