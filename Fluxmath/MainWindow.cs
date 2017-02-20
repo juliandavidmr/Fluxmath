@@ -1,29 +1,34 @@
-﻿using System;
-using Fluxmath;
-using Gtk;
+﻿using FluxMath.Interfaces.Electronica;
+using FluxMath.Interfaces.Informacion;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-public partial class MainWindow : Gtk.Window {
-	
-	public MainWindow() : base(Gtk.WindowType.Toplevel) {
-		Build();
-	}
+namespace FluxMath {
+  public partial class MainWindow : Form {
+    public MainWindow() {
+      InitializeComponent();
+    }
 
-	protected void OnDeleteEvent(object sender,DeleteEventArgs a) {
-		Application.Quit();
-		a.RetVal = true;
-	}
+    private void herramientasToolStripMenuItem_Click(object sender, EventArgs e) {
 
-	/**
- 	* <summary>Acerca de</summary>
-	*/
-	protected void OnDialogInfoActionActivated(object sender,EventArgs e) {
-		new Acercade().Show();
-	}
+    }
 
-	/**
-	 * <summary>Ventana Ohm</summary>
-	*/
-	protected void OnConnectActionActivated(object sender,EventArgs e) {
-		new Ohm().Show();
-	}
+    private void ohmToolStripMenuItem_Click(object sender, EventArgs e) {
+      Ohm o = new Ohm();
+      o.MdiParent = this;
+      o.Show();
+    }
+
+    private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e) {
+      Acercade a = new Acercade();
+      a.ShowDialog();
+    }
+  }
 }

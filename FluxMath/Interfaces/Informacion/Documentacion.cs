@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FluxMath.Interfaces.Electronica {
-  public partial class Ohm : Form {
-    public Ohm() {
+namespace FluxMath.Interfaces.Informacion {
+  public partial class Documentacion : Form {
+    public Documentacion() {
       InitializeComponent();
     }
   }
