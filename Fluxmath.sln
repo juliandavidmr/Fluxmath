@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluxmath", "Fluxmath\Fluxmath.csproj", "{6719069C-D33B-4A08-B020-369D58BB6731}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "Helpers\Helpers.csproj", "{159C066D-AF25-49B6-81E9-84A3823447C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,5 +15,9 @@ Global
 		{6719069C-D33B-4A08-B020-369D58BB6731}.Debug|x86.Build.0 = Debug|x86
 		{6719069C-D33B-4A08-B020-369D58BB6731}.Release|x86.ActiveCfg = Release|x86
 		{6719069C-D33B-4A08-B020-369D58BB6731}.Release|x86.Build.0 = Release|x86
+		{159C066D-AF25-49B6-81E9-84A3823447C6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{159C066D-AF25-49B6-81E9-84A3823447C6}.Debug|x86.Build.0 = Debug|Any CPU
+		{159C066D-AF25-49B6-81E9-84A3823447C6}.Release|x86.ActiveCfg = Release|Any CPU
+		{159C066D-AF25-49B6-81E9-84A3823447C6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

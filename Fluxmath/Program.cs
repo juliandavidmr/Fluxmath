@@ -1,12 +1,9 @@
 ﻿using System;
 using Gtk;
 
-namespace Fluxmath
-{
-	class MainClass
-	{
-		public static void Main(string[] args)
-		{
+namespace Fluxmath {
+	class MainClass {
+		public static void Main(string[] args) {
 			Application.Init();
 			MainWindow win = new MainWindow();
 			win.Show();

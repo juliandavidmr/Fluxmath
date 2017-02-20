@@ -59,6 +59,20 @@
     <Compile Include="gtk-gui\MainWindow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interfaces\Acercade.cs" />
+    <Compile Include="gtk-gui\Fluxmath.Acercade.cs" />
+    <Compile Include="gtk-gui\Fluxmath.Ohm.cs" />
+    <Compile Include="Interfaces\Electronica\Ohm.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Helpers\Helpers.csproj">
+      <Project>{159C066D-AF25-49B6-81E9-84A3823447C6}</Project>
+      <Name>Helpers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Interfaces\Electronica\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
