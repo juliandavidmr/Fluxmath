@@ -70,6 +70,12 @@
     <Compile Include="Interfaces\Estadistica\Intercept.Designer.cs">
       <DependentUpon>Intercept.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\Estadistica\Permutar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Estadistica\Permutar.Designer.cs">
+      <DependentUpon>Permutar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\Estadistica\Probabilidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\Estadistica\Intercept.resx">
       <DependentUpon>Intercept.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Estadistica\Permutar.resx">
+      <DependentUpon>Permutar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>

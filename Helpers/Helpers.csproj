@@ -32,6 +32,7 @@
   <ItemGroup>
     <Compile Include="InterceptHelper.cs" />
     <Compile Include="OhmHelper.cs" />
+    <Compile Include="PermutacionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

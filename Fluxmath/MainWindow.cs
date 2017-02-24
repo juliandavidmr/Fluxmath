@@ -37,5 +37,11 @@ namespace FluxMath {
       i.MdiParent = this;
       i.Show();
     }
+
+    private void tomandoRElementosToolStripMenuItem_Click(object sender, EventArgs e) {
+      Permutar p = new Permutar();
+      p.MdiParent = this;
+      p.Show();
+    }
   }
 }

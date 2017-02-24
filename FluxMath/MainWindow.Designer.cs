@@ -31,10 +31,12 @@
       this.ohmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.estadisticaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.basicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.intercepciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.documentaciònToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.intercepciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.permutacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.tomandoRElementosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -85,7 +87,7 @@
       // ohmToolStripMenuItem
       // 
       this.ohmToolStripMenuItem.Name = "ohmToolStripMenuItem";
-      this.ohmToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.ohmToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
       this.ohmToolStripMenuItem.Text = "Ohm";
       this.ohmToolStripMenuItem.Click += new System.EventHandler(this.ohmToolStripMenuItem_Click);
       // 
@@ -93,7 +95,8 @@
       // 
       this.estadisticaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.basicoToolStripMenuItem,
-            this.intercepciónToolStripMenuItem});
+            this.intercepciónToolStripMenuItem,
+            this.permutacionesToolStripMenuItem});
       this.estadisticaToolStripMenuItem.Name = "estadisticaToolStripMenuItem";
       this.estadisticaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
       this.estadisticaToolStripMenuItem.Text = "&Estadistica";
@@ -101,8 +104,15 @@
       // basicoToolStripMenuItem
       // 
       this.basicoToolStripMenuItem.Name = "basicoToolStripMenuItem";
-      this.basicoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.basicoToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
       this.basicoToolStripMenuItem.Text = "Basico";
+      // 
+      // intercepciónToolStripMenuItem
+      // 
+      this.intercepciónToolStripMenuItem.Name = "intercepciónToolStripMenuItem";
+      this.intercepciónToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+      this.intercepciónToolStripMenuItem.Text = "Intercepción";
+      this.intercepciónToolStripMenuItem.Click += new System.EventHandler(this.intercepciónToolStripMenuItem_Click);
       // 
       // ayudaToolStripMenuItem
       // 
@@ -126,12 +136,20 @@
       this.acercaDeToolStripMenuItem.Text = "&Acerca de";
       this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
       // 
-      // intercepciónToolStripMenuItem
+      // permutacionesToolStripMenuItem
       // 
-      this.intercepciónToolStripMenuItem.Name = "intercepciónToolStripMenuItem";
-      this.intercepciónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-      this.intercepciónToolStripMenuItem.Text = "Intercepción";
-      this.intercepciónToolStripMenuItem.Click += new System.EventHandler(this.intercepciónToolStripMenuItem_Click);
+      this.permutacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tomandoRElementosToolStripMenuItem});
+      this.permutacionesToolStripMenuItem.Name = "permutacionesToolStripMenuItem";
+      this.permutacionesToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+      this.permutacionesToolStripMenuItem.Text = "Permutaciones";
+      // 
+      // tomandoRElementosToolStripMenuItem
+      // 
+      this.tomandoRElementosToolStripMenuItem.Name = "tomandoRElementosToolStripMenuItem";
+      this.tomandoRElementosToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+      this.tomandoRElementosToolStripMenuItem.Text = "Tomando r elementos";
+      this.tomandoRElementosToolStripMenuItem.Click += new System.EventHandler(this.tomandoRElementosToolStripMenuItem_Click);
       // 
       // MainWindow
       // 
@@ -164,6 +182,8 @@
     private System.Windows.Forms.ToolStripMenuItem documentaciònToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem intercepciónToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem permutacionesToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem tomandoRElementosToolStripMenuItem;
   }
 }
 
