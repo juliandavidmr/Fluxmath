@@ -34,6 +34,7 @@
       this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.documentaciònToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.intercepciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -60,7 +61,7 @@
       // salirToolStripMenuItem
       // 
       this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-      this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
       this.salirToolStripMenuItem.Text = "Salir";
       // 
       // herramientasToolStripMenuItem
@@ -91,7 +92,8 @@
       // estadisticaToolStripMenuItem
       // 
       this.estadisticaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.basicoToolStripMenuItem});
+            this.basicoToolStripMenuItem,
+            this.intercepciónToolStripMenuItem});
       this.estadisticaToolStripMenuItem.Name = "estadisticaToolStripMenuItem";
       this.estadisticaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
       this.estadisticaToolStripMenuItem.Text = "&Estadistica";
@@ -124,11 +126,18 @@
       this.acercaDeToolStripMenuItem.Text = "&Acerca de";
       this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
       // 
+      // intercepciónToolStripMenuItem
+      // 
+      this.intercepciónToolStripMenuItem.Name = "intercepciónToolStripMenuItem";
+      this.intercepciónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.intercepciónToolStripMenuItem.Text = "Intercepción";
+      this.intercepciónToolStripMenuItem.Click += new System.EventHandler(this.intercepciónToolStripMenuItem_Click);
+      // 
       // MainWindow
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(595, 390);
+      this.ClientSize = new System.Drawing.Size(595, 371);
       this.Controls.Add(this.menuStrip1);
       this.IsMdiContainer = true;
       this.MainMenuStrip = this.menuStrip1;
@@ -154,6 +163,7 @@
     private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem documentaciònToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem intercepciónToolStripMenuItem;
   }
 }
 

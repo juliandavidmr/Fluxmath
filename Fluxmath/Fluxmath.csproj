@@ -64,6 +64,12 @@
     <Compile Include="Interfaces\Electronica\Resistencia.Designer.cs">
       <DependentUpon>Resistencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\Estadistica\Intercept.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Estadistica\Intercept.Designer.cs">
+      <DependentUpon>Intercept.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\Estadistica\Probabilidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Interfaces\Electronica\Ohm.resx">
       <DependentUpon>Ohm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Estadistica\Intercept.resx">
+      <DependentUpon>Intercept.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>

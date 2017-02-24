@@ -1,4 +1,5 @@
 ﻿using FluxMath.Interfaces.Electronica;
+using FluxMath.Interfaces.Estadistica;
 using FluxMath.Interfaces.Informacion;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,12 @@ namespace FluxMath {
     private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e) {
       Acercade a = new Acercade();
       a.ShowDialog();
+    }
+
+    private void intercepciónToolStripMenuItem_Click(object sender, EventArgs e) {
+      Intercept i = new Intercept();
+      i.MdiParent = this;
+      i.Show();
     }
   }
 }
