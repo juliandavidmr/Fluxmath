@@ -1,1 +1,20 @@
-<h1>Hola</h1>
+{% extends 'blog/base.html' %} {% block content %}
+<div class="row">
+    {% for publicacion in publicaciones %}
+    <div class="col-md-4">
+        <div class="date">
+            {{ publicacion.creacion_fecha }}
+        </div>
+        <h1>
+             <a href="{% url 'blog.views.publicacion_detalle' pk=publicacion.pk %}">
+                 {{ publicacion.titulo }}
+             </a>
+        </h1>    
+        <p>
+            {{ publicacion.texto|linebreaksbr }}
+        </p>
+        <a class="btn btn-secondary" href="#" role="button">Ver &raquo;</a></p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

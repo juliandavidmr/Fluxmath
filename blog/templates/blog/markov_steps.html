@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+  <h1>Crear</h1>
+
+  <form method="POST" class="form">
+      {% csrf_token %}      
+      <input type="text" name="matrix" placeholder="1, 3, 2; 4, 5, 7">
+      <input type="number" name="steps">
+      <button type="submit" class="save btn btn-default">Resolver</button>
+      <br>
+      {{ result }}
+  </form>
+{% endblock content %}
