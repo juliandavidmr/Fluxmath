@@ -1,0 +1,56 @@
+{% extends "blog/base.html" %} {% block content %} {% load staticfiles %}
+
+<div id="component_graph">
+  <h1>Matrix de transición</h1>
+  <h3>Grafo</h3>
+
+  <br>
+
+  <div class="btn-group btn-group-justified" role="group" aria-label="...">
+    <button v-on:click="addState()" type="button" class="btn btn-primary" title="Agregar estado">+</button>
+    <button v-on:click="removeLast" type="button" class="btn btn-danger">Quitar</button>
+    <button v-on:click="reverse" type="button" class="btn btn-secundary">Invertir</button>
+  </div>
+
+  <br>
+  <br>
+  <p>Nombres de los estados: </p>
+  <div class="row">
+    <div v-for="item in estados" class="col-md-1">
+      <div class="input-group">
+        <input type="text" class="form-control" v-model="item.label" />
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <button v-if="!seguir" v-on:click="continuar()" type="button" class="btn btn-success" title="Agregar probabilidades de transicion">Continuar</button>
+
+  <div v-if="seguir">
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Transición</div>
+      <div class="panel-body">
+        <p>
+          Seleccione un elemento de la izquierda
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="mynetwork"></div>
+  <pre id="eventSpan"></pre>
+</div>
+
+<script src="{% static 'js/vue_functions/vue.matrixgraph.js' %}"></script>
+
+{% endblock content %}

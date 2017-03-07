@@ -35,3 +35,7 @@ def markov_steps(request):
         return render(request, 'blog/markov_steps.html', {'result': result})
     else:
         return render(request, 'blog/markov_steps.html', {})
+
+
+def markov_graph_matrix(request):
+    return render(request, 'blog/markov_graph_matrix.html', {})
