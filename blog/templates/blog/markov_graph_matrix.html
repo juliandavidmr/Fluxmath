@@ -14,35 +14,86 @@
 
   <br>
   <br>
+
   <p>Nombres de los estados: </p>
   <div class="row">
-    <div v-for="item in estados" class="col-md-1">
+    <div v-for="item in estados" class="col-md-4">
       <div class="input-group">
         <input type="text" class="form-control" v-model="item.label" />
       </div>
     </div>
   </div>
 
-  <br>
-  <button v-if="!seguir" v-on:click="continuar()" type="button" class="btn btn-success" title="Agregar probabilidades de transicion">Continuar</button>
+  <hr>
 
-  <div v-if="seguir">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+      <h3>
+        Transición
+      </h3>
+    </div>
+    <div class="panel-body">
+      <p>
+        Añadir transicion
+      </p>
+    </div>
 
-    <div class="panel panel-default">
-      <!-- Default panel contents -->
-      <div class="panel-heading">Transición</div>
-      <div class="panel-body">
-        <p>
-          Seleccione un elemento de la izquierda
-        </p>
+    <!-- Selector de Transición -->
+    <div class="row">
+      <div class="col-md-4">
+        <select v-model="selectedto" class="form-control">
+          <option v-for="option in estados" v-bind:value="option.id" :key="option.id" v-html="option.label">
+          </option>
+        </select>
       </div>
-
-      <div class="row">
-        <div class="col-md-6">
-        </div>
-        <div class="col-md-6">
-        </div>
+      <div class="col-md-4">
+        <input type="number" v-model="probabilidad" class="form-control">
       </div>
+      <div class="col-md-4">
+        <select v-model="selectedfrom" class="form-control">
+          <option v-for="option in estados" v-bind:value="option.id" :key="option.id" v-html="option.label">
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Muestra el resultado basico de la transicion antes de añadirla -->
+    <div class="row">
+      <div class="col-md-8">
+        Transición actual:
+        <label for="" v-html="selectedto"></label> --->
+        <label for="" v-html="probabilidad"></label> --->
+        <label for="" v-html="selectedfrom"></label>
+      </div>
+      <div class="col-md-4">
+        <button v-on:click="addEdge()" type="button" class="btn btn-secundary">Añadir vertice</button>
+      </div>
+    </div>
+
+    <br>
+    <!-- Listado de esges registrados -->
+    <div v-if="edges.length > 0" class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Desde (i)</th>
+            <th>Hasta (j)</th>
+            <th>Probabilidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in edges">
+            <th scope="row" v-html="index + 1"></th>
+            <td v-html="item.from"></td>
+            <td v-html="item.to"></td>
+            <td v-html="item.label"></td>
+          </tr>          
+        </tbody>
+      </table>
+
+      <button v-on:click="graph()" type="button" class="btn btn-secundary">Graficar</button>
     </div>
   </div>
 

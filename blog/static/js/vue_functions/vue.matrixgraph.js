@@ -1,60 +1,23 @@
 var component_graph = new Vue({
   el: '#component_graph',
   data: {
+    selectedto: 1,
+    selectedfrom: 1,
     estados: [{
       id: 1,
       label: 'Estado 1',
       title: 'I have a popup!'
     }],
     seguir: false,
-    nodes: [{
-        id: 1,
-        label: 'Node 1',
-        title: 'I have a popup!'
-      },
-      {
-        id: 2,
-        label: 'Node 2',
-        title: 'I have a popup!'
-      },
-      {
-        id: 3,
-        label: 'Node 3',
-        title: 'I have a popup!'
-      },
-      {
-        id: 4,
-        label: 'Node 4',
-        title: 'I have a popup!'
-      },
-      {
-        id: 5,
-        label: 'Node 5',
-        title: 'I have a popup!'
-      }
-    ],
-    edges: [
-      {
-        from: 1,
-        to: 3
-      },
-      {
-        from: 1,
-        to: 2
-      },
-      {
-        from: 2,
-        to: 4
-      },
-      {
-        from: 2,
-        to: 5
-      }
-    ],
-    count: 1
+    edges: [],
+    count: 1,
+    probabilidad: 0.0
   },
   mounted: function () {
     // this.graph()
+    console.log('created', this);
+    var vm = this;
+    vm.$root.selectedto = 1;
   },
   methods: {
     addState: function (event) { // Añade un estado
@@ -64,6 +27,16 @@ var component_graph = new Vue({
         title: 'Estado ' + this.count
       });
       return this.estados
+    },
+    addEdge: function (event) { // Añade un estado
+      this.edges.push({
+        to: this.selectedto,
+        from: this.selectedfrom,
+        label: this.probabilidad
+      });
+      this.selectedto = 1;
+      this.selectedfrom = 1;
+      return this.edges
     },
     removeLast: function (event) { // Quita el ultimo estado ingresado
       this.estados.pop();
@@ -76,7 +49,7 @@ var component_graph = new Vue({
 
       this.graph()
     },
-    graph: function () {      
+    graph: function () {
       var container = document.getElementById('mynetwork');
       var data1 = {
         nodes: this.estados,
@@ -92,3 +65,5 @@ var component_graph = new Vue({
     }
   }
 })
+
+component_graph.selectedto = 0;
