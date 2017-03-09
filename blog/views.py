@@ -43,10 +43,10 @@ def markov_graph_matrix(request):
 
 def markov_prediccion_palabra(request):
     if request.method == "POST":
-        oracion = request.POST.get('oracion', '').strip() 
+        oracion = request.POST.get('oracion', '').encode('ascii')
         data = Frase(oracion=oracion)
-        # result = data.save()                    # Almacena en la bd la oracion
-        list_aux = oracion.split(' ')             # Separa la entrada para luego obtener la ultima palabra
+        result = data.save()                    # Almacena en la bd la oracion
+        list_aux = oracion.split(' ')           # Separa la entrada para luego obtener la ultima palabra
         actual = list_aux[len(list_aux) - 1].strip()       # Se obtiene la ultima palabra escrita
         frases = Frase.objects.order_by('creacion_fecha')  # Obtiene listado de frases (historial) de la bd
         result = prediccion(frases, actual)

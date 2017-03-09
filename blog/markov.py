@@ -26,9 +26,11 @@ def nextSteps(matrix, steps=1):
     return P**steps
 
 
-def prediccion(list_frases, actual):				
+def prediccion(list_frases, actual):
+    actual = str(actual).strip()
     count_map = {}    # Almacena todas las claves { 'palabra futura': veces }
     counter = 0       # Cantidad de elementos o palabras
+    prob_map = {}       # Almacena cada una de las probabilidades
     for item in list_frases:
         frases_split = str(item).split(" ")  # Separa la oracion por espacios
         for index, word in enumerate(frases_split):
@@ -38,18 +40,18 @@ def prediccion(list_frases, actual):
                 counter = counter + 1                    # Aumenta contador de palabras futuras
                 # Puede darse el caso de que la entrada es una palabra, se
                 # inicializa entonces con la actual
-                future = actual
-                if frases_split.count > (index + 1):    # Hay palabra futuro? es decir, estado j
+                future = str(actual)
+                # Hay palabra futuro? es decir, estado j
+                if (index + 1) < len(frases_split):
                     # Obtiene la palabra futuro
-                    future = frases_split[index + 1]
+                    future = str(frases_split[index + 1])
                 if count_map.has_key(future):
                     count_map[future] = count_map[future] + 1
                 else:
                     count_map[future] = 1
-		prob_map = {}       # Almacena cada una de las probabilidades
-		
-		for key, value in count_map.iteritems():
-				prob_map[key] = float(count_map[key]) / float(counter)
+
+                for key, value in count_map.iteritems():
+                    prob_map[key] = float(value) / float(counter)
 
     print(count_map, counter)
     return [count_map, prob_map]
