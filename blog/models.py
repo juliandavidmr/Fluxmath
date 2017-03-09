@@ -20,3 +20,12 @@ class Publicacion(models.Model):
 
     def __str__(self):
         return self.titulo
+
+
+class Frase(models.Model):
+    oracion = models.TextField()    
+    creacion_fecha = models.DateTimeField(
+        default=timezone.now
+    )
+    def __str__(self):
+        return self.oracion

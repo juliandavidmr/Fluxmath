@@ -15,6 +15,9 @@ $ pip install pylint # Optional for Visual Code
 ## Ejecutar proyecto
 
 ```sh
+# Ejecutar si aún no se han creado los modelos de migración
+$ python manage.py makemigrations blog
+
 # Migrar modelos a la base de datos
 $ python manage.py migrate
 

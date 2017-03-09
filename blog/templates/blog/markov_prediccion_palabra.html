@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}{% load staticfiles %} {% block content %}
+
+<div id="prediccion">
+    <h1>Crear</h1>
+
+    <form method="POST" class="form">
+        {% csrf_token %}
+        <input type="text" name="oracion" placeholder="Mensaje" required>
+        <button type="submit" class="save btn btn-default">Predecir</button>
+        <br>
+        {{ frases }}
+        {{ result }}
+    </form>
+</div>
+
+{% endblock content %}
+
+<script src="{% static 'js/vue_functions/vue.prediccion.js' %}"></script>

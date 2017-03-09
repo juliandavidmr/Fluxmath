@@ -2,7 +2,8 @@
 
 import numpy as np
 
-def stringToMatrix(input_str = ''):
+
+def stringToMatrix(input_str=''):
     """Convierte un string en una matrix de numeros reales. El string debe tener el formato:\n
     n1, n2; m1, m2\n
     Donde ; separa cada fila de la matrix, resultando una matrix:  \n
@@ -25,12 +26,43 @@ def nextSteps(matrix, steps=1):
     return P**steps
 
 
+def prediccion(list_frases, actual):				
+    count_map = {}    # Almacena todas las claves { 'palabra futura': veces }
+    counter = 0       # Cantidad de elementos o palabras
+    for item in list_frases:
+        frases_split = str(item).split(" ")  # Separa la oracion por espacios
+        for index, word in enumerate(frases_split):
+            print("Palabra ", str(word), str(actual))
+
+            if str(word) == str(actual):                 # Se busca la palabra actual
+                counter = counter + 1                    # Aumenta contador de palabras futuras
+                # Puede darse el caso de que la entrada es una palabra, se
+                # inicializa entonces con la actual
+                future = actual
+                if frases_split.count > (index + 1):    # Hay palabra futuro? es decir, estado j
+                    # Obtiene la palabra futuro
+                    future = frases_split[index + 1]
+                if count_map.has_key(future):
+                    count_map[future] = count_map[future] + 1
+                else:
+                    count_map[future] = 1
+		prob_map = {}       # Almacena cada una de las probabilidades
+		
+		for key, value in count_map.iteritems():
+				prob_map[key] = float(count_map[key]) / float(counter)
+
+    print(count_map, counter)
+    return [count_map, prob_map]
+
+
 # --------------------------------------------------------
-matrix1 = [[0.08, 0.184, 0.368,	0.368],
-           [0.632, 0.368, 0, 0],
-           [0.264, 0.368, 0.368, 0],
-           [0.08, 0.184, 0.368, 0.368]]
+"""
+ matrix1 = [[0.08, 0.184, 0.368,	0.368],
+					 [0.632, 0.368, 0, 0],
+					 [0.264, 0.368, 0.368, 0],
+					 [0.08, 0.184, 0.368, 0.368]]
 
-print(nextSteps(matrix1, 6))
+ print(nextSteps(matrix1, 6))
 
-print(stringToMatrix(input_str = '1, 3, 2; 3, 5, 7'))
+ print(stringToMatrix(input_str = '1, 3, 2; 3, 5, 7'))
+"""

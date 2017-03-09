@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-from .models import Publicacion
+from .models import Publicacion, Frase
 from .forms import PublicacionForm
 
 from .markov import *
@@ -39,3 +39,19 @@ def markov_steps(request):
 
 def markov_graph_matrix(request):
     return render(request, 'blog/markov_graph_matrix.html', {})
+
+
+def markov_prediccion_palabra(request):
+    if request.method == "POST":
+        oracion = request.POST.get('oracion', '').strip() 
+        data = Frase(oracion=oracion)
+        # result = data.save()                    # Almacena en la bd la oracion
+        list_aux = oracion.split(' ')             # Separa la entrada para luego obtener la ultima palabra
+        actual = list_aux[len(list_aux) - 1].strip()       # Se obtiene la ultima palabra escrita
+        frases = Frase.objects.order_by('creacion_fecha')  # Obtiene listado de frases (historial) de la bd
+        result = prediccion(frases, actual)
+        return render(request, 'blog/markov_prediccion_palabra.html', {'result': result})
+    else:
+        # Frase.objects.all().delete()     
+        frases = Frase.objects.order_by('creacion_fecha')
+        return render(request, 'blog/markov_prediccion_palabra.html', {'frases': frases})
