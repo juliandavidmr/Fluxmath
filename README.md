@@ -1,6 +1,6 @@
 # FluxMath
 
-Procesador matemático
+Procesador matemático, resolutor de cadenas de markov y analizador de grafos.
 
 ```sh
 # Linux
@@ -34,4 +34,11 @@ $ python manage.py runserver
 $ sudo apt-get install python-virtualenv
 ```
 
-https://tutorial.djangogirls.org/es/deploy/
+## Rutas
+
+* **/markov/prediccion**  ==> Predición de palabras
+* **/markov/graph**       ==> Visualización de grafo desde matrix de estados
+* **/markov/steps**       ==> Calculo de estados futuros a partir de una matrix inicial
+
+---
+### **Desarollado por: @anlijudavid**

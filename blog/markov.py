@@ -27,6 +27,8 @@ def nextSteps(matrix, steps=1):
 
 
 def prediccion(list_frases, actual):
+    """Predice la siguiente posible palabra 
+    """
     actual = str(actual).strip()
     count_map = {}    # Almacena todas las claves { 'palabra futura': veces }
     counter = 0       # Cantidad de elementos o palabras
@@ -34,7 +36,7 @@ def prediccion(list_frases, actual):
     for item in list_frases:
         frases_split = str(item).split(" ")  # Separa la oracion por espacios
         for index, word in enumerate(frases_split):
-            print("Palabra ", str(word), str(actual))
+            # print("Palabra ", str(word), str(actual))
 
             if str(word) == str(actual):                 # Se busca la palabra actual
                 counter = counter + 1                    # Aumenta contador de palabras futuras
