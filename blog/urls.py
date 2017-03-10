@@ -10,5 +10,5 @@ urlpatterns = [
     url(r'^markov/graph/$', views.markov_graph_matrix),
     url(r'^markov/prediccion/$', views.markov_prediccion_palabra),
     url(r'^markov/api/(?P<oracion>.+)/$', views.markov_prediccion_palabra_api),
-    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': path.join(path.dirname(__file__), 'static')}),
+    url(r'^static/(?P<path>.*)/$', 'django.views.static.serve', {'document_root': path.join(path.dirname(__file__), 'static')}),
 ]

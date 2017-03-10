@@ -1,5 +1,9 @@
 # coding=utf-8
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 import numpy as np
 
 
@@ -27,17 +31,16 @@ def nextSteps(matrix, steps=1):
 
 
 def prediccion(list_frases, actual):
-    """Predice la siguiente posible palabra 
-    """
+    """Predice la siguiente posible palabra"""
     actual = str(actual).strip()
     count_map = {}    # Almacena todas las claves { 'palabra futura': veces }
     counter = 0       # Cantidad de elementos o palabras
     prob_map = {}       # Almacena cada una de las probabilidades
     for item in list_frases:
-        frases_split = str(item).split(" ")  # Separa la oracion por espacios
+        item = str(item).encode('ascii', 'ignore').decode('ascii')
+        frases_split = item.split(" ")  # Separa la oracion por espacios
         for index, word in enumerate(frases_split):
             # print("Palabra ", str(word), str(actual))
-
             if str(word) == str(actual):                 # Se busca la palabra actual
                 counter = counter + 1                    # Aumenta contador de palabras futuras
                 # Puede darse el caso de que la entrada es una palabra, se
@@ -54,7 +57,6 @@ def prediccion(list_frases, actual):
 
                 for key, value in count_map.iteritems():
                     prob_map[key] = float(value) / float(counter)
-
     print(count_map, counter)
     return [count_map, prob_map]
 

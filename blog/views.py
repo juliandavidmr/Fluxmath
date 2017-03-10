@@ -45,7 +45,7 @@ def markov_graph_matrix(request):
 
 def markov_prediccion_palabra(request):
     if request.method == "POST":
-        oracion = request.POST.get('oracion', '').encode('ascii')
+        oracion = request.POST.get('oracion', '').encode('utf-8')
         data = Frase(oracion=oracion)
         result = data.save()
         ## Almacena en la bd la
@@ -70,13 +70,15 @@ def markov_prediccion_palabra_api(request, oracion):
     data = Frase(oracion=oracion)
     # result = data.save()                    # Almacena en la bd la oracion
     # Separa la entrada para luego obtener la ultima palabra
-    list_aux = oracion.split(' ')
+    list_aux = str(oracion).split(' ')    
     # Se obtiene la ultima palabra escrita
-    actual = list_aux[len(list_aux) - 1].strip()
+    actual = str(list_aux[len(list_aux) - 1].strip()).encode('utf-8')
     # Obtiene listado de frases (historial) de la bd
     frases = Frase.objects.order_by('creacion_fecha')
-    result = prediccion(frases, actual)
+    # print("Data:", frases)
+    result = prediccion(frases, actual)    
+    print("Result:", result)
     return JsonResponse({
         "repeticiones": sorted(result[0].items(), key=operator.itemgetter(1), reverse=True),
         "probabilidad": sorted(result[1].items(), key=operator.itemgetter(1), reverse=True)
-    })
+    }, status = 200)
