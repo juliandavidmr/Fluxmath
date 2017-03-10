@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
+from django.http import JsonResponse
 from .models import Publicacion, Frase
 from .forms import PublicacionForm
 
 from .markov import *
+import operator
 
 # Create your views here.
 
@@ -45,13 +47,36 @@ def markov_prediccion_palabra(request):
     if request.method == "POST":
         oracion = request.POST.get('oracion', '').encode('ascii')
         data = Frase(oracion=oracion)
-        # result = data.save()                    # Almacena en la bd la oracion
-        list_aux = oracion.split(' ')           # Separa la entrada para luego obtener la ultima palabra
-        actual = list_aux[len(list_aux) - 1].strip()       # Se obtiene la ultima palabra escrita
-        frases = Frase.objects.order_by('creacion_fecha')  # Obtiene listado de frases (historial) de la bd
-        result = prediccion(frases, actual)
+        result = data.save()
+        ## Almacena en la bd la
+        ## oracion
+        ## Separa la entrada para luego obtener la ultima palabra
+        # list_aux = oracion.split(' ')
+        ## Se obtiene la ultima palabra escrita
+        # actual = list_aux[len(list_aux) - 1].strip()
+        ## Obtiene listado de frases (historial) de la bd
+        ## frases = Frase.objects.order_by('creacion_fecha')
+        ## result = prediccion(frases, actual)
         return render(request, 'blog/markov_prediccion_palabra.html', {'result': result})
     else:
-        # Frase.objects.all().delete()     
+        # Frase.objects.all().delete()
         frases = Frase.objects.order_by('creacion_fecha')
         return render(request, 'blog/markov_prediccion_palabra.html', {'frases': frases})
+
+
+def markov_prediccion_palabra_api(request, oracion):
+    """ Predice la siguiente palabra segun un orden """
+    # print("oracion:>", oracion)
+    data = Frase(oracion=oracion)
+    # result = data.save()                    # Almacena en la bd la oracion
+    # Separa la entrada para luego obtener la ultima palabra
+    list_aux = oracion.split(' ')
+    # Se obtiene la ultima palabra escrita
+    actual = list_aux[len(list_aux) - 1].strip()
+    # Obtiene listado de frases (historial) de la bd
+    frases = Frase.objects.order_by('creacion_fecha')
+    result = prediccion(frases, actual)
+    return JsonResponse({
+        "repeticiones": sorted(result[0].items(), key=operator.itemgetter(1), reverse=True),
+        "probabilidad": sorted(result[1].items(), key=operator.itemgetter(1), reverse=True)
+    })

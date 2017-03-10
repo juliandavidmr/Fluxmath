@@ -1,18 +1,35 @@
 {% extends "blog/base.html" %}{% load staticfiles %} {% block content %}
 
+
 <div id="prediccion">
     <h1>Predecir</h1>
 
-    <form method="POST" class="form">
+    <!-- Almacena informacion en la bd -->
+    <form method="POST" class="row">
         {% csrf_token %}
-        <input type="text" name="oracion" placeholder="Mensaje" required>
-        <button type="submit" class="save btn btn-default">Predecir</button>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Mensaje</span>
+            <input type="text" name="oracion" placeholder="Mensaje a registrar" class="form-control col-md-12" required>
+        </div>
+
+        <button type="submit" class="btn btn-default col-md-2">Registrar</button>
         <br>
-        {{ frases }}
+        <!-- {{ frases }} -->
         {{ result }}
     </form>
+
+    <br>
+    <br>
+
+    <!-- Realiza las peticiones desde ajax -->
+    <div class="row">
+        <input type="text" placeholder="Mensaje" v-model="text" class="form-control col-md-12">
+
+        <span v-for="(item, index) in futures" v-bind:class="[ 'label', 'label-primary', 'col-md-1']" v-html="item.value.word" v-bind:title="item.value.prob"></span>
+    </div>
 </div>
 
-{% endblock content %}
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="{% static 'js/vue_functions/vue.prediccion.js' %}"></script>
+
+{% endblock content %}

@@ -7,5 +7,6 @@ urlpatterns = [
     url(r'^publicacion/crear/$', views.publicacion_crear, name='publicacion_crear'),
     url(r'^markov/steps/$', views.markov_steps),
     url(r'^markov/graph/$', views.markov_graph_matrix),
-    url(r'^markov/prediccion/$', views.markov_prediccion_palabra)
+    url(r'^markov/prediccion/$', views.markov_prediccion_palabra),
+    url(r'^markov/api/(?P<oracion>.+)/$', views.markov_prediccion_palabra_api)
 ]
