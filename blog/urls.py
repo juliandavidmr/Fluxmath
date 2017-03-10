@@ -1,3 +1,4 @@
+from os import path
 from django.conf.urls import include, url
 from . import views
 
@@ -8,5 +9,6 @@ urlpatterns = [
     url(r'^markov/steps/$', views.markov_steps),
     url(r'^markov/graph/$', views.markov_graph_matrix),
     url(r'^markov/prediccion/$', views.markov_prediccion_palabra),
-    url(r'^markov/api/(?P<oracion>.+)/$', views.markov_prediccion_palabra_api)
+    url(r'^markov/api/(?P<oracion>.+)/$', views.markov_prediccion_palabra_api),
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': path.join(path.dirname(__file__), 'static')}),
 ]
