@@ -6,10 +6,10 @@
 
   <br>
 
-  <div class="btn-group btn-group-justified" role="group" aria-label="...">
-    <button v-on:click="addState()" type="button" class="btn btn-primary" title="Agregar estado">+</button>
-    <button v-on:click="removeLast" type="button" class="btn btn-danger">Quitar</button>
-    <button v-on:click="reverse" type="button" class="btn btn-secundary">Invertir</button>
+  <div class="btn-group" role="group">
+    <button v-on:click="addState()" type="button" class="btn btn-primary col-md-8" title="Agregar estado">Agregar estado</button>
+    <button v-on:click="removeLast" type="button" class="btn btn-danger">Quitar último</button>
+    <button v-on:click="reverse" type="button" class="btn btn-secundary">Invertir orden</button>
   </div>
 
   <br>
@@ -42,32 +42,27 @@
     <!-- Selector de Transición -->
     <div class="row">
       <div class="col-md-4">
-        <select v-model="selectedto" class="form-control">
+        <select v-model="selectedto" class="form-control" title="Estado (i)">
           <option v-for="option in estados" v-bind:value="option.id" :key="option.id" v-html="option.label">
           </option>
         </select>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4" title="Probabilidad de ir de i hasta j">
         <input type="number" v-model="probabilidad" class="form-control">
       </div>
       <div class="col-md-4">
-        <select v-model="selectedfrom" class="form-control">
+        <select v-model="selectedfrom" class="form-control" title="Estado (j)">
           <option v-for="option in estados" v-bind:value="option.id" :key="option.id" v-html="option.label">
           </option>
         </select>
       </div>
-    </div>
-
-    <!-- Muestra el resultado basico de la transicion antes de añadirla -->
-    <div class="row">
-      <div class="col-md-8">
-        Transición actual:
-        <label for="" v-html="selectedto"></label> --->
-        <label for="" v-html="probabilidad"></label> --->
-        <label for="" v-html="selectedfrom"></label>
-      </div>
-      <div class="col-md-4">
-        <button v-on:click="addEdge()" type="button" class="btn btn-secundary">Añadir vertice</button>
+      <!-- Muestra el resultado basico de la transicion antes de añadirla -->
+      <div class="col-md-12">
+        <br>
+        <button v-on:click="addEdge()" type="button" class="btn btn-secundary">Añadir transición</button> Transición actual:
+        <label for="" v-html="selectedto" title="i"></label> =>
+        <label for="" v-html="probabilidad" title="Probabilidad de la transición actual"></label> =>
+        <label for="" v-html="selectedfrom" title="j"></label>
       </div>
     </div>
 
@@ -89,7 +84,7 @@
             <td v-html="item.from"></td>
             <td v-html="item.to"></td>
             <td v-html="item.label"></td>
-          </tr>          
+          </tr>
         </tbody>
       </table>
 

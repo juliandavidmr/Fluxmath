@@ -71,4 +71,4 @@ var component_graph = new Vue({
   }
 })
 
-component_graph.selectedto = 0;
+// component_graph.selectedto = 0;
